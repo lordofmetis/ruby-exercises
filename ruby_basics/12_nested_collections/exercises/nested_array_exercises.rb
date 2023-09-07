@@ -11,16 +11,22 @@ def blank_seating_chart(number_of_rows, seats_per_row)
 
   # NOTE: if one of the nested arrays is changed, the others should **not**
   # change with it
+  apple = Array.new(number_of_rows) {Array.new(seats_per_row)}
+  apple
 end
 
 def add_seat_to_row(chart, row_index, seat_to_add)
   # take a chart (2d array)  and add seat_to_add to the end of the row that is
   # at row_index index of the chart, then return the chart
+  chart[row_index].push(seat_to_add)
+  chart
 end
 
 def add_another_row(chart, row_to_add)
   # take a chart and add row_to_add to the end of the chart,
   # then return the chart.
+  chart.push(row_to_add)
+  chart
 end
 
 def delete_seat_from_row(chart, row_index, seat_index)
@@ -28,6 +34,8 @@ def delete_seat_from_row(chart, row_index, seat_index)
   # the chart, then return the chart
 
   # Hint: explore the ruby docs to find a method for deleting from an array!
+  chart[row_index].pop(seat_index)
+  
 end
 
 def delete_row_from_chart(chart, row_index)
